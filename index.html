@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qmultiplyfileupload</title>
+	<script type="text/javascript" src="lodash.min.js"></script>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+	<script type="text/javascript" src="plugin.js"></script>
+	<style type="text/css">
+		.popbox{
+		  position:fixed;
+		  top:0rem;
+		  bottom:0rem;
+		  z-index:3;
+		  height:auto;
+		  width:100%;
+		}
+		.popbox.show{
+		  display:block;
+		}
+		.popbox.hide{
+		  display:none;
+		}
+		.popbox .popmask{
+		  position:absolute;
+		  bottom:0rem;
+		  top:0rem;
+		  width:100%;
+		  background:#000000;
+		  opacity:0.4;
+		}
+		.popbox .popcontent{
+		  position:absolute;
+		  left:0;
+		  right:0;
+		  bottom:0;
+		  top:0;
+		  opacity:1;
+		  bottom:0rem;
+		  background:transparent;
+		}
+		.popbox .popcontent .popinner{
+		    position: fixed;
+		    top: 50%;
+		    left: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		            transform: translate(-50%,-50%);
+		    background: #ffffff;
+		    border-radius:0.1rem;
+		}
+
+		.pureimagecontainer {
+		    display:block;
+		    overflow:hidden;
+		}
+		.pureimagecontainer .wrapitem{
+		    float: left;
+		    font-size: 0;
+		    text-align: center;
+		    width: 33.3%;
+		    padding:0.05rem;
+		}
+		.pureimagecontainer  .wrapitem .item{
+		    font-size:0.22rem;
+		    border-radius:0.1rem;
+		    width: 100%;
+		    /*
+		    padding:0.1rem;
+		    */
+		    display: inline-block;
+		    color:#aeacb3;
+		}
+		.pureimagecontainer  .wrapitem .item.active{
+		    background:#33d1ff;
+		    color:#ffffff;
+		}
+	</style>
+	<script>
+		 $(document).ready(function (argument) {
+		 	
+		 	$(".qmultiplyfileupload").qmultiplyfileupload({
+		 		qmultiplyfileuploadboxTemplate:$(".qmultiplyfileuploadboxTemplate")
+		 	});
+
+		 });
+	</script>
+</head>
+<body>
+
+	<input type="text" class="qmultiplyfileupload">
+	
+	<div class="popbox qmultiplyfileuploadbox qmultiplyfileuploadboxTemplate" style="display:none">
+		<div class="popmask">
+		</div>
+		<div class="popcontent">
+				<div class="popinner" style="width:60%;">
+						<div>
+							<div class="pureimagecontainer qfilelist">
+								<div class="wrapitem qfileitem qfileitemTemp" style="display: none;position:relative;" >
+									<div class="item" >
+										<div style="position:relative;">
+											<img src="images/qrcode.jpg">
+											<div style="position:absolute;right:0;top:0;font-size:50px;" class="qdelete">
+												X
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="margin:30px auto;width:60%;">
+								<div  style="position:relative;width:50px;height:50px;display:inline-block;">
+									<img class="qfilepickerwrap" src="images/qrcode.jpg" style="position:absolute;width:100%;height:100%;">
+									<input style="display:none" class="qfilepicker" type="file" multiple="multiple" />
+								</div>
+								<div  style="display:inline-block;" class="qcancel">
+									取消
+								</div>
+							    <div  style="display:inline-block;" class="qconfirm">
+									确认
+								</div>
+						   </div>
+						</div>
+				</div>
+		</div>
+	</div>
+
+</body>
+</html>
